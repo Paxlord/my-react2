@@ -18,11 +18,20 @@ class App extends React.Component {
     };
 
     this.onChecked = this.onChecked.bind(this);
+    this.onDelete = this.onDelete.bind(this);
   }
 
   componentDidMount() {
     this.setState({
       data: intialState,
+    });
+  }
+
+  onDelete(id) {
+    const { data } = this.state;
+
+    this.setState({
+      data: data.filter((item) => item.id !== id),
     });
   }
 
@@ -47,7 +56,14 @@ class App extends React.Component {
 
     return (
       <Grid container spacing={1}>
-        {data.map((item) => <Item key={item.id} item={item} onChecked={this.onChecked} />)}
+        {data.map((item) => (
+          <Item
+            key={item.id}
+            item={item}
+            onChecked={this.onChecked}
+            onDelete={this.onDelete}
+          />
+        ))}
       </Grid>
     );
   }
