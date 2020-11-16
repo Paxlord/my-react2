@@ -4,6 +4,6 @@ import ReactDOM from 'react-dom';
 
 import './index.scss';
 
-const App = () => <div></div>;
+const App = () => <div />;
 
 ReactDOM.render(<App />, document.getElementById('app'));
